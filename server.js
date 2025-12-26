@@ -4,7 +4,16 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 const app = express();
-const db = new sqlite3.Database(path.join(__dirname, 'workouts.db'));
+const db = new sqlite3.Database(
+  path.join(__dirname, 'workouts.db'),
+  sqlite3.OPEN_READONLY,
+  (err) => {
+    if (err) {
+      console.error("Failed to open database:", err);
+      process.exit(1);
+    }
+  }
+);
 
 // Serve frontend
 app.use(express.static('public'));

@@ -1,20 +1,21 @@
-# Use official Node.js LTS image
 FROM node:20-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json first (for caching)
+RUN useradd -m appuser
+
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install --production
 
-# Copy the rest of the app
-COPY . .
+COPY server.js ./server.js
+COPY public ./public
+COPY workouts.db ./workouts.db
 
-# Expose the port your app runs on
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
 EXPOSE 3000
 
-# Start the server
 CMD ["node", "server.js"]

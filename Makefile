@@ -5,10 +5,9 @@ build:
 	docker build -t $(IMAGE_NAME):$(TAG) .
 
 run:
-	docker run --rm -p 3000:3000 $(IMAGE_NAME):$(TAG)
+	docker run --init --rm -p 3000:3000 --read-only $(IMAGE_NAME):$(TAG)
 
 push:
-	@echo "Logging into GHCR..."
 	docker push $(IMAGE_NAME):$(TAG)
 
 local: build run

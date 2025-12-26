@@ -18,7 +18,6 @@ def main():
         workout_lines = w.get("workout")
         category = "Hero WODS" if "hero" in posted_by.lower() else "Cardio"
 
-        # Insert into SQLite (category + difficulty default to NULL)
         cur.execute("""
             INSERT INTO workouts (category, title, workout_json)
             VALUES (?, ?, ?)
