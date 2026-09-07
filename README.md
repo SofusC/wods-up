@@ -1,1 +1,1 @@
-Simple, mostly vibe-coded crossfit wod "generator", available at wodsup.eu. Most importantly, the wods are not generated, but a curated list of professionally programmed workouts.
+Simple, mostly vibe-coded CrossFit WOD "generator", available at [wodsup.eu](https://wodsup.eu). Most importantly, the WODs are not generated, but a curated list of professionally programmed workouts.
